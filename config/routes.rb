@@ -1,51 +1,58 @@
 Rails.application.routes.draw do
+  
+  #devise顧客用
+  devise_for :customers, controllers: {
+    sessions: 'public/sessions',
+    registrations: 'public/registrations',
+    passwords: 'public/passwords'
+  }
+  
+  #devise管理者用
+  devise_for :admins, skip: [:registrations, :passwords], controllers: {
+    sessions: 'admin/sessions'
+  }
+  
+  #顧客用
+  scope module: :public do
+    root :to => 'homes#top'
+    get 'about' => 'homes#about'
+    resources :items, only: [:index, :show] do
+      collection do
+        get 'search'
+      end
+      
+    end
+    resources :customers, only: [:show, :edit, :update] do
+      collection do
+        get 'unsubscribe'
+        patch 'withdraw'
+      end
+      
+    end
+    resources :cart_items, except: [:new, :show, :edit] do
+      collection do
+        delete 'destroy_all'
+      end
+      
+    end
+    resources :orders, only: [:new, :index, :show, :create] do
+      collecion do
+        post 'check'
+        get 'complete'
+      end
+      
+    end
+    resources :addresses, except: [:new, :show]
+  end
+  
+  #管理者用
   namespace :admin do
-    get 'orders/index'
-    get 'orders/show'
+    root :to => 'homes#top'
+    resources :items, except: [:destroy]
+    resources :genres, only: [:index, :create, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:index, :show, :update]
+    resources :order_details, only: [:update]
   end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
-  end
-  namespace :admin do
-    get 'items/new'
-    get 'items/index'
-    get 'items/show'
-    get 'items/edit'
-  end
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :public do
-    get 'cart_items/index'
-  end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
-  end
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-  end
-  devise_for :admins
-  devise_for :customers
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
 end
