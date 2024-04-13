@@ -36,7 +36,7 @@ Rails.application.routes.draw do
       
     end
     resources :orders, only: [:new, :index, :show, :create] do
-      collecion do
+      collection do
         post 'check'
         get 'complete'
       end
