@@ -1,0 +1,149 @@
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">CardShop夜桜</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <div class="collapse navbar-collapse position-relative" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <% if customer_signed_in? %> <!--顧客ログイン時-->
+            <li class="nav-item my-auto" style="color: white; align-self: center;">
+              ようこそ、<%= current_customer.full_name %>さん！
+            </li>
+            <li class="nav-item">
+                  <%= link_to customer_path(current_customer.id), class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-home"></i>
+                    マイページ
+                  <% end %>
+                </li>
+            <li class="nav-item">
+                  <%= link_to items_path, class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-indent"></i>
+                    商品一覧
+                  <% end %>
+                </li>
+            <li class="nav-item">
+                  <%= link_to cart_items_path, class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    カート
+                  <% end %>
+                </li>
+            <li class="nav-item">
+                  <%= link_to about_path, class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-link"></i>
+                    About
+                  <% end %>
+                </li>
+            <li class="nav-item">
+                  <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-sign-out-alt"></i>
+                    ログアウト
+                  <% end %>
+                </li>
+          <% elsif admin_signed_in? %><!--管理者ログイン時-->
+            <li class="nav-item">
+                  <%= link_to admin_items_path, class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-book-open"></i>
+                    商品一覧
+                  <% end %>
+                </li>
+            <li class="nav-item">
+                  <%= link_to admin_customers_path, class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-book-open"></i>
+                    会員一覧
+                  <% end %>
+                </li>
+            <li class="nav-item">
+                  <%= link_to admin_root_path, class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-book-open"></i>
+                    注文履歴一覧
+                  <% end %>
+                </li>
+            <li class="nav-item">
+                  <%= link_to about_path, class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-link"></i>
+                    About
+                  <% end %>
+                </li>
+            <li class="nav-item">
+                  <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-sign-out-alt"></i>
+                    ログアウト
+                  <% end %>
+                </li>
+          <% else %><!--ログインしていない時-->
+            <li class="nav-item">
+                  <%= link_to about_path, class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-link"></i>
+                    About
+                  <% end %>
+                </li>
+            <li class="nav-item">
+                  <%= link_to items_path, class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-home"></i>
+                    商品一覧
+                  <% end %>
+                </li>
+            <li class="nav-item">
+                  <%= link_to new_customer_registration_path, class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-user-plus"></i>
+                    新規登録
+                  <% end %>
+                </li>
+            <li class="nav-item">
+                  <%= link_to new_customer_session_path, class: 'nav-link text-light' do %>
+                    <i class="fa-solid fa-sign-in-alt"></i>
+                    ログイン
+                  <% end %>
+                </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!--<nav class="navbar navbar-dark bg-dark fixed-top">-->
+<!--  <div class="container-fluid">-->
+<!--    <a class="navbar-brand" href="#">Offcanvas dark navbar</a>-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">-->
+<!--      <div class="offcanvas-header">-->
+<!--        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>-->
+<!--        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>-->
+<!--      </div>-->
+<!--      <div class="offcanvas-body">-->
+<!--        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link active" aria-current="page" href="#">Home</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="#">Link</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item dropdown">-->
+<!--            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--              Dropdown-->
+<!--            </a>-->
+<!--            <ul class="dropdown-menu dropdown-menu-dark">-->
+<!--              <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--              <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--              <li>-->
+<!--                <hr class="dropdown-divider">-->
+<!--              </li>-->
+<!--              <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--            </ul>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--        <form class="d-flex mt-3" role="search">-->
+<!--          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--          <button class="btn btn-success" type="submit">Search</button>-->
+<!--        </form>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
