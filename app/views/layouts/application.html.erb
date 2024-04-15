@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CardShopYozakura</title>
+    <title>CardShop夜桜</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,6 +12,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render "layouts/header" %>
+    </header>
+    <main>
+      <% flash.each do |message_type, message| %>
+        <%= content_tag :div, message, class: message_type %>
+      <% end %>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <div class="border-top mt-20">
+        <div class="row">
+          
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
