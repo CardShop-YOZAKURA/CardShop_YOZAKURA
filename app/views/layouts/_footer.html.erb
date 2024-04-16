@@ -1,0 +1,55 @@
+<nav class="navbar-dark bg-dark mt-5">
+  <div class="container">
+    <div class="row text-center text-xs-center text-sm-left text-md-left text-light">
+      <div class="col-7">
+        <h5>ONLINE STORE</h5>
+        <div class="row">
+          <div class="col-6">
+            <ul class="list-unstyled quick-links">
+              <li><%= link_to root_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>TOP<% end %></li>
+              <li><%= link_to customer_path(current_customer.id), class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>マイページ<% end %></li>
+              <li><%= link_to items_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>商品一覧<% end %></li>
+              <li><%= link_to root_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>特定商品取引法に基づく表記<% end %></li>
+              <li><%= link_to root_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>プライバシーポリシー<% end %></li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <ul class="list-unstyled quick-links">
+           	  <li><%= link_to root_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>ご利用ガイド<% end %></li>
+           	<div class="footer-lists">
+           	  <li><%= link_to root_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>お支払いについて<% end %></li>
+           	  <li><%= link_to root_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>配送について<% end %></li>
+           	  <li><%= link_to root_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>よくある質問<% end %></li>
+           	</div>
+           </ul>
+         </div>
+        </div>
+      </div>
+      <div class="col-4">
+	    <h5>ABOUT</h5>
+      	  <ul class="list-unstyled quick-links">
+	        <li><%= link_to about_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>CardShop夜桜について<% end %></li>
+	        <li><%= link_to root_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>会社概要<% end %></li>
+	        <li><%= link_to root_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>メディアブレス<% end %></li>
+	        <li><%= link_to root_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>スタッフ募集<% end %></li>
+	        <li><%= link_to root_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>お問い合わせ<% end %></li>
+	      </ul>
+   	  </div>
+	</div>
+	<!--<div class="row text-xs-center text-sm-center text-md-left">-->
+	<!--  <div class="col-xs-12 col-sm-12 col-md-8 mt-2 mt-sm-5">-->
+	<!--    <ul class="list-unstyled list-inline social">-->
+	<!-- 	  <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>	-->
+	<!--	  <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>-->
+	<!--	  <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>-->
+	<!--      <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>-->
+	<!--      <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>-->
+	<!--    </ul>-->
+	<!--  </div>-->
+	<!--  <div class="col-xs-12 col-sm-12 col-md-4 mt-2 mt-sm-5">-->
+	<!--  	<p>©</p>-->
+	<!--  </div>-->
+	<!--<hr>-->
+	<!--</div>	-->
+  </div>
+</nav>
