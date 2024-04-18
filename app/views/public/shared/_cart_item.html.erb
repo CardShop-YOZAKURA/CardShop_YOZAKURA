@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th class="active text-center"><h5 class="cart_item">カート内商品</h5></th>
+        </tr>
+        <tr>
+          <th class="active text-center">商品総枚数｜小計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%# cart_items.each do |cart_item| %>
+          <tr>
+            <td class="underline">
+              <p>商品名｜削除ボタン</p>
+              <p>単価x個数＝小計</p>
+              <%#= cart_item.item.name %>
+              <%#= cart_item.item.price %>
+              <%#= form_with model:cart_item, url: cart_item_path(cart_iten), local: true, method: :patch do |f|  %>
+              <%# end %>
+            </td>
+          </tr>
+        <%# %>
+      </tbody>
+    </table>
+  </div>
+</div>
