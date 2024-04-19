@@ -1,2 +1,51 @@
 <h1>Public::Customers#show</h1>
 <p>Find me in app/views/public/customers/show.html.erb</p>
+<!------------------------------------------------------------------------------>
+<div class="container">
+  <div class="row">
+    <div class="col-3"><!--部分レンプレート化したジャンル一覧-->
+      <%= render "public/shared/genre" %>
+    </div>
+    <div class="col-6">
+      <div class="row"><!--マイページ-->
+        <h3>マイページ</h3>
+      </div>
+      <div class="row mb-3">
+        <strong class="col-3 align-self-center">登録情報</strong>
+        <%= link_to "編集する", edit_customer_path, class: "btn btn-success col-3 ms-auto" %>
+      </div>
+      <div class="row">
+        <table class="table-bordered">
+      <tr>
+        <th bgcolor="#99CC99">氏名</th><td style="width: 450px;"><%#= @customer.full_name %></td>
+      </tr>
+      <tr>
+        <th bgcolor="#99CC99">カナ</th><td><%#= @customer.full_name_kana %></td>
+      </tr>
+      <tr>
+        <th bgcolor="#99CC99">メールアドレス</th><td><%#= @customer.email %></td>
+      </tr>
+      <tr>
+        <th bgcolor="#99CC99">郵便番号</th><td><%#= @customer.postal_code %></td>
+      </tr>
+      <tr>
+        <th bgcolor="#99CC99">住所</th><td><%#= @customer.address %></td>
+      </tr>
+      <tr>
+        <th bgcolor="#99CC99">電話番号</th><td><%#= @customer.telephone_number %></td>
+      </tr>
+      <!--<tr>-->
+      <!--  <th bgcolor="#99CC99">事業所</th>-->
+      <!--  <td>長野県松本市山葵町３−６</td>-->
+      <!--</tr>-->
+      </table>
+      </div>
+      <div class="row">
+        <%= link_to "退会する", unsubscribe_customers_path, class: "btn btn-danger col-3 mt-3 ms-auto" %>
+      </div>
+    </div>
+    <div class="col-3"><!--部分レンプレート化したカート内アイテム一覧-->
+      <%= render "public/shared/cart_item" %>
+    </div>
+  </div>
+</div>
