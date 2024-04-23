@@ -3,7 +3,12 @@ class CartItem < ApplicationRecord
   belongs_to :item
   belongs_to :customer
   
-  validates :item_id, :customer_id, :amount, presence: true
+  with_options presence: true do
+    validates :item_id
+    validates :customer_id
+    validates :amount
+  end
+  
   
   # def subtotal
   #   item.price_including_tax * amount
