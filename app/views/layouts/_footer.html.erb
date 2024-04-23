@@ -7,6 +7,7 @@
           <div class="col-6">
             <ul class="list-unstyled quick-links">
               <li><%= link_to root_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>TOP<% end %></li>
+              <!--マイページへのリンクはログイン状態の時遷移するようにif文で条件分岐-->
               <li><%= link_to customer_path(current_customer.id), class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>マイページ<% end %></li>
               <li><%= link_to items_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>商品一覧<% end %></li>
               <li><%= link_to root_path, class: 'nav-link text-light mb-1' do %><i class="fa fa-angle-double-right"></i>特定商品取引法に基づく表記<% end %></li>
