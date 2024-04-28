@@ -1,4 +1,8 @@
 class Admin::OrdersController < ApplicationController
+  
+  def index
+    
+  end
  
   def show
     @order = Order.find(params[:id])
@@ -15,9 +19,6 @@ class Admin::OrdersController < ApplicationController
   redirect_to  admin_order_path(@order) #注文詳細に遷移
   end
   
-  if condition
-    
-  end
   private
   
   def order_params
