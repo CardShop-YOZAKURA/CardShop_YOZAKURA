@@ -14,7 +14,7 @@
         <strong class="col-3 align-self-center">登録情報</strong>
         <%= link_to "編集する", edit_customer_path, class: "btn btn-success col-3 ms-auto" %>
       </div>
-      <div class="row">
+      <div class="row mb-3">
         <table class="table-bordered">
       <tr>
         <th bgcolor="#99CC99">氏名</th><td style="width: 450px;"><%#= @customer.full_name %></td>
@@ -34,11 +34,15 @@
       <tr>
         <th bgcolor="#99CC99">電話番号</th><td><%#= @customer.telephone_number %></td>
       </tr>
-      <!--<tr>-->
-      <!--  <th bgcolor="#99CC99">事業所</th>-->
-      <!--  <td>長野県松本市山葵町３−６</td>-->
-      <!--</tr>-->
       </table>
+      </div>
+      <div class="row mb-3">
+        <strong class="col-3 align-self-center">配送先</strong>
+        <%= link_to "一覧を見る", addresses_path, class: "btn btn-primary col-3 ms-auto" %>
+      </div>
+      <div class="row mb-3">
+        <strong class="col-3 align-self-center">注文一覧</strong>
+        <%= link_to "一覧を見る", orders_path, class: "btn btn-primary col-3 ms-auto" %>
       </div>
       <div class="row">
         <%= link_to "退会する", unsubscribe_customers_path, class: "btn btn-danger col-3 mt-3 ms-auto" %>
