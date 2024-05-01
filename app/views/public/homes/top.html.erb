@@ -13,15 +13,15 @@
       <div class="row"><!--新着商品の表示-->
         <h3>新着商品</h3>
         <div class="row item-card-content">
-        <%# @items.each do |item| %>
+        <% @items.each do |item| %>
           <div class="col-md-3">
-            <%#= link_to item_path(item.id) do %>
-              <%#= image_tag item.get_image(100, 100) %>
-            <%# end %><br>
-            <%#= item.name %><br>
-            <%#= item.price.to_s(:delimited, delimiter: ',') %><br>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.get_image(100, 100) %>
+            <% end %><br>
+            <%= item.name %><br>
+            <%= item.price.to_s(:delimited, delimiter: ',') %><br>
           </div>
-        <%# end %>
+        <% end %>
       </div>
       </div>
     </div>
